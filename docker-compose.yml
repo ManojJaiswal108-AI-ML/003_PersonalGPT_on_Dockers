@@ -1,0 +1,26 @@
+services:
+  app:                       # <-- This is the SERVICE NAME "app",  we use in the docker compose commands
+    build: .
+    container_name: personal-gpt-app     # <-- This overrides the final running container name i.e., [project_name]-[service_name]-[container_number]
+    ports:
+      - "8000:8000"          # your localhost's 8000 -> app's 8000
+    env_file: .env           # secrets injected at RUNTIME, never baked into the image
+    environment:
+      - CHROMA_HOST=chroma   # <- the SERVICE NAME below, not an IP address
+      - CHROMA_PORT=8000     # <- chroma's INTERNAL port (not the published 8001)
+      - OPENAI_API_KEY       # The values is passed through env on command line
+    depends_on:
+      - chroma               # Let's 1st build/run the chroma image/container
+    restart: unless-stopped  # if it does crash, Docker brings it back
+
+  chroma:
+    image: chromadb/chroma:0.6.3
+    container_name: prsonal-gpt-chroma
+    ports:
+      - "8001:8000"          # published only so YOU can poke it from the laptop
+    volumes:
+      - chroma_data:/chroma/chroma   # the steel dabba - data survives till container death
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
