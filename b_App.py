@@ -117,7 +117,7 @@ def ask(q: Question):
 
 
 
-#(infused_venv) PS E:\11_Programming\NeuralNetwork\07_Scaler_Ai_Infused\Scaler_AI_Infused_Learning_05_25_Jul_2026_Docker\class5\class5\02_PersonalGPT> docker compose up -d 
+#(infused_venv) PS E:\02_PersonalGPT> docker compose up -d 
 #[+] up 12/12
 # ✔ Image chromadb/chroma:0.6.3 Pulled                                                                                                                                                             73.9s
 #1 [internal] load local bake definitions
@@ -186,9 +186,8 @@ def ask(q: Question):
 #  ✔ Container personal-gpt-app        Started                                                                                                           2.9s
 
 
-# (infused_venv) PS E:\11_Programming\NeuralNetwork\07_Scaler_Ai_Infused\Scaler_AI_Infused_Learning_05_25_Jul_2026_Docker\class5\class5\02_PersonalGPT> docker compose exec app python a_Ingest.py 
+# (infused_venv) PS E:\02_PersonalGPT> docker compose exec app python a_Ingest.py 
 # Failed to send telemetry event ClientStartEvent: capture() takes 1 positional argument but 3 were given
 # Ingested 15 chunks from 3 file(s) ✅
 # Collection now holds 15 chunks total.
 
-# (infused_venv) PS E:\11_Programming\NeuralNetwork\07_Scaler_Ai_Infused\Scaler_AI_Infused_Learning_05_25_Jul_2026_Docker\class5\class5\02_PersonalGPT> 
